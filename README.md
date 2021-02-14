@@ -1,1 +1,1 @@
-# Firebase fireStore sample
+### Firebase Firestore
