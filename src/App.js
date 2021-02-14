@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 import './App.css';
 // import {db} from './Firebase';
 
+// const document = db.collection('todo-app').doc('todo-list'); 
+
 function App() {
   const [task, setTask] = useState('');
   const [todoList, setTodoList] = useState([]);
@@ -11,7 +13,8 @@ function App() {
   }, []);
 
   const onChange = (e) => {
-    setTask(e.target.value);
+    const newTask = e.target.value;
+    setTask(newTask);
   }
 
   const addTodo = () => {
@@ -25,8 +28,8 @@ function App() {
         <h3>Todo List</h3>
       </div>
       <div className="container">
-        <input type="text" onChange={onChange} value={task}></input>
-        <button type="button" onClick={addTodo}>add</button>
+        <input type="text" className="input-style" onChange={onChange} value={task}></input>
+        <button type="button" className="btn" onClick={addTodo}>add</button>
         <ul>
           {todoList.map((todo) => <li key={todo}>{todo}</li>)}
         </ul>
